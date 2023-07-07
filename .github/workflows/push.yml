@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::464004139021:role/GithubActionsRole
+        aws-region: us-east-1
