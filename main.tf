@@ -17,10 +17,6 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
-
-  assume_role {
-    role_arn = "arn:aws:iam::464004139021:role/TerraformCloudassumerole"
-  }
 }
 
 resource "aws_s3_bucket" "this" {
