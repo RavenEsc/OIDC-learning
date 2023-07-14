@@ -20,14 +20,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-#     - name: Configure AWS credentials
-#       uses: aws-actions/configure-aws-credentials@v2
-#       with:
-#         role-to-assume: arn:aws:iam::464004139021:role/GithubActionsRole
-#         aws-region: us-east-1
-#     - name: Sts GetCallerIdentity
-#       run: |
-#          aws sts get-caller-identity
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::464004139021:role/GithubActionsRole
+        aws-region: us-east-1
+    - name: Sts GetCallerIdentity
+      run: |
+         aws sts get-caller-identity
     - name: Upload Configuration
       uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
       id: plan-upload
