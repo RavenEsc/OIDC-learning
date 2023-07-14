@@ -4,6 +4,7 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+  }
   cloud {
     organization = "raven-for-aws"
 
@@ -11,7 +12,6 @@ terraform {
     name = "OIDC-test-configuration"
     }
    }
-  }
 }
 
 # Configure the AWS Provider
