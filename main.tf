@@ -20,5 +20,5 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "this" {
-  bucket = "My-Terraform-Cloud-Bucket"
+  bucket = "Ravens-Terraform-Cloud-Bucket1"
 }
