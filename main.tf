@@ -5,10 +5,10 @@ terraform {
       version = "~> 4.0"
     }
   cloud {
-    organization = "my-org"
+    organization = "raven-for-aws"
 
     workspaces {
-    name = "my-app-prod"
+    name = "OIDC-test-configuration"
     }
    }
   }
