@@ -19,6 +19,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_s3_bucket" "this" {
-  bucket = "ravens-terraform-cloud-bucket1"
-}
+# resource "aws_s3_bucket" "this" {
+#   bucket = "ravens-terraform-cloud-bucket1"
+# }
