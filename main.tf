@@ -4,6 +4,13 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+  cloud {
+    organization = "my-org"
+
+    workspaces {
+    name = "my-app-prod"
+    }
+   }
   }
 }
 
