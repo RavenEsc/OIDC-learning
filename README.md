@@ -397,7 +397,9 @@ resource "aws_s3_bucket" "this" {
 ### References:
 Setting up the Terraform Cloud to AWS OIDC connection (Steps 1-5) from Jorge Pablos.
 - https://labinhood.com/blog/2023/02/terraform-cloud-and-aws-via-openid-connect-oidc/
+
 Dives deeper into setting up GitHub with TFC, but has some unneeded code. Still worth the look.
 - https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials/aws-configuration#configure-aws
+
 Yaml code adapted from this repository to work with GitHub Actions.
 - https://github.com/hashicorp-education/learn-terraform-github-actions
