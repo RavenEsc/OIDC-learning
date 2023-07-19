@@ -3,7 +3,7 @@
 This is a "How To" for getting this configuration set up (As of 07/2023):
 (With linked images)
 
-# GitHub Actions &#8594; Terraform Cloud &#8594; [Terraform.io OIDC] &#8594; AWS
+# GitHub Actions &#8594; [GitHub OAuth] &#8594; Terraform Cloud &#8594; [Terraform.io OIDC] &#8594; AWS
 Using IaC, Terraform, to deploy purely off of cloud credentials and automate deployment upon change to Terraform code.
 
 Long-term credentials:
@@ -29,7 +29,7 @@ What is involved? What is needed?
 - [ ] Then on ' Add Provider '
 
 [ IAM/Identity_Provider ](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-2#/identity_providers)
-  > ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/30729f19-fc53-4574-921f-89b331eebe81
+  > ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/30729f19-fc53-4574-921f-89b331eebe81)
 
 
 ### 2. Add Provider (AWS)
@@ -42,7 +42,7 @@ From there:
 - [ ] Finish creating the IDP link by clicking on 'Add Provider'
 
 [ Terraform OpenIDC ](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-2#/identity_providers/create)
-  > ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/4547f13e-2d29-4ce4-8dbc-e186de03c98e
+  > ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/4547f13e-2d29-4ce4-8dbc-e186de03c98e)
 
 ### 3. Assign IAM-Role (AWS)
 
@@ -51,11 +51,11 @@ After it sends you back to the Identity Provider page:
 - [ ] Then, on the new page, click on the 'Assign Role' button
 - [ ] At the pop-up, select 'Create New Role', then click 'Next'
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/87e1326a-9f07-415d-a6cb-d14b402e76e1
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/87e1326a-9f07-415d-a6cb-d14b402e76e1)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/dc704f2e-3656-42c8-a5c4-5f3522cc85df
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/dc704f2e-3656-42c8-a5c4-5f3522cc85df)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/676a7e8d-9474-4e72-8fb5-9cd0210d719b
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/676a7e8d-9474-4e72-8fb5-9cd0210d719b)
 
 
 ### 4. Create Role (AWS)
@@ -72,13 +72,13 @@ The Type and IDP should be pre-selected,
 - [ ] Name the Role [```TFCAssumeRole```] (You Can Add a Description like "Used for Automatic Service Deployments of Terraform Code.")
 - [ ] Then click 'Create Role'
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/ca8758fa-088b-46d7-b1c8-a213c649aeb0
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/ca8758fa-088b-46d7-b1c8-a213c649aeb0)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/6b5d08ef-a56d-4694-8a41-c9fa582bdbe0
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/6b5d08ef-a56d-4694-8a41-c9fa582bdbe0)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/5ecbfa64-2046-44e0-9901-67ea5b768df4
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/5ecbfa64-2046-44e0-9901-67ea5b768df4)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/a2ba37e2-45ae-4457-9928-c504f8842e2d
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/a2ba37e2-45ae-4457-9928-c504f8842e2d)
 
 
 ### 5. Connect to Terraform Cloud (TFC)
@@ -87,7 +87,7 @@ Finish Up on AWS by typing 'TFC' in the search bar to find TFCAssumeRole.
 - [ ] Then, click on your role and proceed to the TFCAssumeRole menu
 - [ ] In the top right, there is an ARN. Click on the 'Copy' button and save for a later step
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/74f74f2b-505a-4743-b5d3-93daa03fb55a
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/74f74f2b-505a-4743-b5d3-93daa03fb55a)
 
 Go into your Terraform Cloud Account and...
 - [ ] At the bottom left click 'Create New Organization'
@@ -104,9 +104,9 @@ Go into your Terraform Cloud Account and...
   - [ ] Click on the 'Project' field, and select 'GitHub-to-AWS'
   - [ ] Then Select 'Create Workspace'
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/41eddc8b-8c6e-4f68-b325-305ef552778e
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/41eddc8b-8c6e-4f68-b325-305ef552778e)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/26600d5d-9919-47e9-a68a-424ba95b0f29
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/26600d5d-9919-47e9-a68a-424ba95b0f29)
 
 - [ ] Afterwards, navigate under 'Manage' on the left, 'Settings'. Next, under 'Organization Settings', select 'Variable Sets' and select 'Create Variable Set'
 - [ ] Name it ```AWSAssumeRoleVariableSet```, then under 'Variable Set Scope', select 'Apply to specific projects and workspaces'
@@ -118,11 +118,11 @@ Go into your Terraform Cloud Account and...
   - [ ] Then, Select 'Environmental Variable' and type in the 'Key' field: ```TFC_AWS_RUN_ROLE_ARN```, then in the 'Value' field: ```[your TFCAssumeRole ARN copied earlier]```. Select 'Add Variable'
 - [ ] Finally, click 'Create Variable Set'
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/4b744c6f-c5fc-47f8-9351-d07165d75b48
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/4b744c6f-c5fc-47f8-9351-d07165d75b48)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/0d49863a-f22d-4aeb-8d82-3e9df35dcea3
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/0d49863a-f22d-4aeb-8d82-3e9df35dcea3)
 
-> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/a2ee3abd-6b95-4812-bfcd-6ff0330522f3
+> ![image](https://github.com/RavenEsc/OIDC-learning/assets/107158921/a2ee3abd-6b95-4812-bfcd-6ff0330522f3)
 
 ### 6. GitHub Repository (Git)
 
