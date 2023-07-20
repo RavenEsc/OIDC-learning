@@ -87,7 +87,7 @@ Finish Up on AWS by typing '**TFC**' in the search bar to find TFCAssumeRole.
 Go into your Terraform Cloud Account and...
 - [ ] At the bottom left click '**Create New Organization**'
 
-  - [ ] Name it ```[_your_name_]-personal-org```
+  - [ ] Name it ```[_your_name_]-personal-org``` (Remember, the name needs to be original)
       
   - [ ] Given it your email and select '**Create Organization**'
       
@@ -162,6 +162,8 @@ You can set up your files in GitHub, or any by means (Personal favorite- VSCode,
 #### 7a. Creating workflow files for Terraform Planning and Applying
 
 - [ ] Name the file ```plan-pull.yml``` and then copy this code into it:
+
+(Remember, change the organization to be yours)
 
 ```
 name: "Terraform Plan"
@@ -247,6 +249,8 @@ jobs:
 
 - [ ] After that. create a new file and name it ```apply-push.yml``` and then copy this code into it:
 
+(Remember, change the organization to be yours)
+
 ```
 name: "Terraform Apply"
 
@@ -256,9 +260,9 @@ on:
       - main
 
 env:
-  TF_CLOUD_ORGANIZATION: "raven-for-aws"
+  TF_CLOUD_ORGANIZATION: "[_your_name_]-personal-org"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "OIDC-test-configuration"
+  TF_WORKSPACE: "Learning-GitHubActions-Terraform"
   CONFIG_DIRECTORY: "./"
 
 jobs:
@@ -294,12 +298,13 @@ jobs:
           comment: "Apply Run from GitHub Actions CI ${{ github.sha }}"
 ```
 
-
 #### 7c. Creating a Terraform file to test a deployment
 
 - [ ] Leave the '**.github/workflows**' folder and go back to the main directory with the README.txt in the GitHub Repo. Create a new file and name it ```main.tf```
   
 - [ ] Then in the file, copy the following test code:
+
+(Remember, the bucket name needs to be original to work and change the organization to be yours)
 
 ```
 terraform {
