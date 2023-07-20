@@ -87,6 +87,8 @@ Finish Up on AWS by typing '**TFC**' in the search bar to find TFCAssumeRole.
 Go into your Terraform Cloud Account and...
 - [ ] At the bottom left click '**Create New Organization**'
 
+([ TFC Projects/Workspaces ](https://app.terraform.io))
+
   - [ ] Name it ```[_your_name_]-personal-org``` (Remember, the name needs to be original)
       
   - [ ] Given it your email and select '**Create Organization**'
@@ -135,6 +137,8 @@ Go into your Terraform Cloud Account and...
 - [ ] Finally, click '**Create Variable Set**'
 
 ## PART 3: GitHub, Workflow, Terraform Test File, GitHub OAuth, and Testing
+
+([ GitHub ](https://github.com/))
 
 ### 6. GitHub Repository
 
@@ -338,6 +342,8 @@ resource "aws_s3_bucket" "this" {
 ### 8. Link GitHub Actions to Terraform Cloud; GitHub OAuth (Git &#8594; TFC)
 
 - [ ] Go into Terraform Cloud, under '**User Settings**' select '**Tokens**'
+
+([ TFC Tokens ](https://app.terraform.io/app/settings/tokens?utm_source=learn))
     
 - [ ] Scroll down to '**GitHub App OAuth Token**' and select the button and follow the steps to link your GitHub Account to your TFC Account
 
@@ -408,3 +414,4 @@ Dives deeper into setting up GitHub with TFC, but has some unneeded code. Still 
 
 Yaml code adapted from this repository to work with GitHub Actions.
 - https://github.com/hashicorp-education/learn-terraform-github-actions
+- https://developer.hashicorp.com/terraform/tutorials/automation/github-actions
