@@ -3,7 +3,7 @@
 This is a "How To" for getting this configuration set up (As of 07/2023):
 (With links)
 
-# GitHub Actions &#8594; [GitHub OAuth] &#8594; Terraform Cloud &#8594; [Terraform.io OIDC] &#8594; AWS
+# GitHub Actions &#8594; [GitHub API Tokens] &#8594; Terraform Cloud &#8594; [Terraform.io OIDC] &#8594; AWS
 Using IaC, Terraform, to deploy purely off of cloud credentials and automate deployment upon change to Terraform code.
 
 Long-term credentials:
@@ -136,7 +136,7 @@ Go into your Terraform Cloud Account and...
     
 - [ ] Finally, click '**Create Variable Set**'
 
-## PART 3: GitHub, Workflow, Terraform Test File, GitHub OAuth, and Testing
+## PART 3: GitHub, Workflow, Terraform Test File, GitHub API Tokens, and Testing
 
 ([ GitHub ](https://github.com/))
 
@@ -261,8 +261,9 @@ name: "Terraform Apply"
 on:
   push:
     branches:
+# Don't Forget to check if the main branch you commit to has "main" as a name. "master" is a common default main branch.
       - main
-
+# Add your org and workspace here. the TF token currently is for the secret variable you add in the repo settings from the generated API token
 env:
   TF_CLOUD_ORGANIZATION: "[_your_name_]-personal-org"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
@@ -339,15 +340,13 @@ resource "aws_s3_bucket" "this" {
 (The first part of the code links the file to the most up to date version of Hashicorp's terraform AWS provider code, followed by linking the file to your TFC account and workspace. It then sets the provider as AWS in the region 'us-east-1' (it should not matter what region is set). Finally, we set up the S3 bucket to test the permissions of the TFCAssumeRole)
 
 
-### 8. Link GitHub Actions to Terraform Cloud; GitHub OAuth (Git &#8594; TFC)
+### 8. Link GitHub Actions to Terraform Cloud; GitHub API Tokens ~OAuth~ (Git &#8594; TFC)
 
 - [ ] Go into Terraform Cloud, under '**User Settings**' select '**Tokens**'
 
 ([ TFC Tokens ](https://app.terraform.io/app/settings/tokens?utm_source=learn))
     
-- [ ] Scroll down to '**GitHub App OAuth Token**' and select the button and follow the steps to link your GitHub Account to your TFC Account
-
-(While making this initially, I found this method to be more streamlined and secure than the previous method which used the TFC API token to set up in your GitHub Environmental Variables)
+- [ ] ~Scroll down to '**GitHub App OAuth Token**' and select the button and follow the steps to link your GitHub Account to your TFC Account~ Select '**Generate New Token**' and name it ```GitHub-to-TFC-Token and hit create, then copy the new token and navigate to your GitHub repository, there open '**Settings**' and on the left select '**Secrets and Variables**' then '**Actions**'. Then select '**New Repository Secret**' and name it ```TF_API_TOKEN``` then paste the API token you copied into the value field and hit create!
 
   ### 9. TEST Test Connection (Git &#8594; TFC &#8594; AWS)
 
