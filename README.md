@@ -174,7 +174,8 @@ name: "Terraform Plan"
 
 on:
   pull_request:
-  
+
+# Add your org and workspace here. the TF token currently is for the secret variable you add in the repo settings from the generated API token (Step 8)
 env:
   TF_CLOUD_ORGANIZATION: "[_your_name_]-personal-org"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
@@ -263,7 +264,7 @@ on:
     branches:
 # Don't Forget to check if the main branch you commit to has "main" as a name. "master" is a common default main branch.
       - main
-# Add your org and workspace here. the TF token currently is for the secret variable you add in the repo settings from the generated API token
+# Add your org and workspace here. the TF token currently is for the secret variable you add in the repo settings from the generated API token (Step 8)
 env:
   TF_CLOUD_ORGANIZATION: "[_your_name_]-personal-org"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
@@ -320,6 +321,7 @@ terraform {
     }
   }
   cloud {
+# Add your org and workspace here
     organization = "[[[_your_name_]-personal-org]]"
 
     workspaces {
@@ -332,6 +334,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# replace values with unique ones to operate properly
 resource "aws_s3_bucket" "this" {
   bucket = "[_your_name_]-terraform-cloud-bucket[_random_number_]"
 }
