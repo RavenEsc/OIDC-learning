@@ -340,13 +340,13 @@ resource "aws_s3_bucket" "this" {
 (The first part of the code links the file to the most up to date version of Hashicorp's terraform AWS provider code, followed by linking the file to your TFC account and workspace. It then sets the provider as AWS in the region 'us-east-1' (it should not matter what region is set). Finally, we set up the S3 bucket to test the permissions of the TFCAssumeRole)
 
 
-### 8. Link GitHub Actions to Terraform Cloud; GitHub API Tokens ~OAuth~ (Git &#8594; TFC)
+### 8. Link GitHub Actions to Terraform Cloud; GitHub API Tokens (Git &#8594; TFC)
 
 - [ ] Go into Terraform Cloud, under '**User Settings**' select '**Tokens**'
 
 ([ TFC Tokens ](https://app.terraform.io/app/settings/tokens?utm_source=learn))
     
-- [ ] ~Scroll down to '**GitHub App OAuth Token**' and select the button and follow the steps to link your GitHub Account to your TFC Account~ Select '**Generate New Token**' and name it ```GitHub-to-TFC-Token and hit create, then copy the new token and navigate to your GitHub repository, there open '**Settings**' and on the left select '**Secrets and Variables**' then '**Actions**'. Then select '**New Repository Secret**' and name it ```TF_API_TOKEN``` then paste the API token you copied into the value field and hit create!
+- [ ] Select '**Generate New Token**' and name it ```GitHub-to-TFC-Token and hit create, then copy the new token and navigate to your GitHub repository, there open '**Settings**' and on the left select '**Secrets and Variables**' then '**Actions**'. Then select '**New Repository Secret**' and name it ```TF_API_TOKEN``` then paste the API token you copied into the value field and hit create!
 
   ### 9. TEST Test Connection (Git &#8594; TFC &#8594; AWS)
 
