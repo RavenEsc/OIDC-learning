@@ -348,7 +348,7 @@ resource "aws_s3_bucket" "this" {
     
 - [ ] Select '**Generate New Token**' and name it ```GitHub-to-TFC-Token and hit create, then copy the new token and navigate to your GitHub repository, there open '**Settings**' and on the left select '**Secrets and Variables**' then '**Actions**'. Then select '**New Repository Secret**' and name it ```TF_API_TOKEN``` then paste the API token you copied into the value field and hit create!
 
-  ### 9. TEST Test Connection (Git &#8594; TFC &#8594; AWS)
+### 9. TEST Test Connection (Git &#8594; TFC &#8594; AWS)
 
 - [ ] Make an edit to the '**main.tf**' file (make a comment using '**//**')
 
